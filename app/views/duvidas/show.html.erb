@@ -1,0 +1,33 @@
+<%= form_with model: @duvida, local: true do |form| %>
+
+  <table class="table table-bordered table-hover">
+  <p>
+    <div class="row">
+      <div class="col-sm-8">
+          <div class="form-group">
+           <tr>
+            <strong>Dúvida: </strong>
+            <td><%= @duvida.text %></td>
+           </tr>
+          </div>
+        </div>
+    </div>
+  </p>
+  </table>
+ 
+  <td><%= link_to 'Remover', duvida_path(@duvida), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>|
+    <%= link_to 'Editar', edit_duvida_path(@duvida), class:"btn btn-default" %>
+  </td></br> </br>
+  <p>
+    <tr>
+      <p>
+        <strong> Responder: </strong>
+        <%= form.text_area :body, class:"form-control" %>
+      </p>
+    </tr>
+  </p>
+<% end %>
+
+<td><%= link_to 'Enviar', duvidas_path, class:"btn btn-success" %></td>
+<td><%= link_to 'Voltar', duvidas_path, class:"btn btn-default"%></td> 
+

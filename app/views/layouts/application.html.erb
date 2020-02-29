@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plurallzinho</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= nav_bar brand: "Plurallzinho", brand_link: duvidas_path, responsive: true do %>
+      <%= menu_group do %>
+          <%= menu_item "Mandar dúvida", new_duvida_path %>
+          <%= menu_item "Dúvidas respondidas", duvidas_path %>
+      <% end %>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

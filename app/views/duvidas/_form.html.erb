@@ -1,0 +1,33 @@
+<%= form_with model: @duvida, local: true do |form| %>
+    
+    <% if @duvida.errors.any? %>
+        <div id="error_explanation">
+            <h2>
+                <%= pluralize(@duvida.errors.count, "error") %> prohibited
+                this article from being saved:
+            </h2>
+            <ul>
+                <% @duvida.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <p>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <%= form.label 'descreva a sua dúvida:' %><br/>
+                    <%= form.text_area :text, class:"form-control" %>
+                </div>
+            </div>
+        </div>
+    </p>
+    
+    <p>
+        <%= form.submit "Enviar",  class:"btn btn-success" %>
+        <%= link_to 'Voltar', duvidas_path,  class:"btn btn-default" %>
+    </p>
+
+<% end %>
